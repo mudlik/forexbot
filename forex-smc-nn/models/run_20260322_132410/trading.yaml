@@ -1,0 +1,26 @@
+# Simulation: stops/targets and reward shaping (success vs failure).
+# Stop distance = ATR * atr_stop_mult (ATR computed in chart analysis).
+
+atr_period: 14
+atr_stop_mult: 1.5
+risk_reward: 2.0
+max_hold_bars: 80
+
+# Reward / penalty magnitudes (R-multiple scaled by outcome).
+reward_win: 1.0
+penalty_loss: 1.0
+# Optional small penalty if trade exits flat/timeout without clear TP/SL (discourage churn).
+penalty_timeout: 0.25
+
+# Signal generation (simple baseline; replace with SMC rules later).
+# Long: trend_score >= 0 and dist_to_ma <= long_th. Short: trend_score <= 0 and dist_to_ma >= short_th.
+signal_dist_to_ma_long: 0.35
+signal_dist_to_ma_short: 0.35
+
+# Target win rate for automatic threshold search in main_backtest (in-sample; use for research only).
+target_win_rate: 0.5
+min_trades_for_tune: 5
+# With --model-run: grid-search min P(win) to maximize trade count subject to WR >= target_win_rate.
+auto_tune_min_prob: true
+# Without --model-run: grid-search signal_dist_to_ma_long (tighter longs) toward same WR goal.
+auto_tune_baseline_signals: true

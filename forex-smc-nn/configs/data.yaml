@@ -1,0 +1,12 @@
+# Paths are relative to the project root (parent of `src/`).
+# Yahoo EUR/USD: https://finance.yahoo.com/quote/EURUSD%3DX/
+raw_csv: "data/raw/eurusd_yahoo.csv"
+# Timestamps from the downloader are naive UTC wall time.
+timezone: "UTC"
+
+# If the CSV is missing or nearly empty, download from Yahoo before train/backtest/infer.
+auto_yahoo_download: true
+yahoo_ticker: "EURUSD=X"
+# 1h data on Yahoo is limited to ~730 days; use e.g. interval 1d + period max for longer history.
+yahoo_period: "2y"
+yahoo_interval: "1h"

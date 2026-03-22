@@ -1,0 +1,3 @@
+# Baseline feature params (extend when SMC rules are implemented).
+ma_period: 20
+label_horizon: 5

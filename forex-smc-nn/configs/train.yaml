@@ -1,0 +1,13 @@
+random_seed: 42
+lookback: 20
+batch_size: 32
+epochs: 40
+learning_rate: 0.001
+hidden_dims: [128, 64]
+val_fraction: 0.2
+checkpoint_dir: "models"
+num_workers: 0
+
+# direction = forward return sign; trade_win = long TP-before-SL (see configs/trading.yaml).
+label_mode: trade_win
+use_class_weights: true
